@@ -48,7 +48,7 @@ class PlayFair:
         tmp_list = np.array(self.key_without_repetition[:tam_list] + self.alfabeto_no_presente[:(25 - tam_list)])
         self.square = np.reshape(tmp_list, (5, 5))
 
-    def cypher_decypher(self):
+    def cipher_decipher(self):
         new_msg = ""
         if(self.action==0):
             for index in range(0, len(self.message), 2):
@@ -88,7 +88,7 @@ class PlayFair:
 
             return new_msg
         else:
-            raise Exception("Use 0 to Cypher and 1 to Decypher")
+            raise Exception("Use 0 to Cypher and 1 to Decipher")
 
 
 def main():
@@ -97,20 +97,20 @@ def main():
     key = "yoan pinzon"
 
     print("Message to Cypher: ", message)
-    to_cypher = PlayFair(message, key, 0)
-    to_cypher.init_square()
+    to_cipher = PlayFair(message, key, 0)
+    to_cipher.init_square()
     print("Square Key:")
-    print(to_cypher.square)
-    cyphered_message = to_cypher.cypher_decypher()
-    print("Message Encrypted: " + cyphered_message)
+    print(to_cipher.square)
+    ciphered_message = to_cipher.cipher_decipher()
+    print("Message Encrypted: " + ciphered_message)
     print()
 
-    print("Message to Decypher: ", cyphered_message)
-    to_decypher = PlayFair(cyphered_message, key, 1)
-    to_decypher.init_square()
+    print("Message to Decipher: ", ciphered_message)
+    to_decipher = PlayFair(ciphered_message, key, 1)
+    to_decipher.init_square()
     print("Square Key:")
-    print(to_decypher.square)
-    print("Message Encrypted: " + to_decypher.cypher_decypher())
+    print(to_decipher.square)
+    print("Message Encrypted: " + to_decipher.cipher_decipher())
 
 if __name__ == '__main__':
     main()
